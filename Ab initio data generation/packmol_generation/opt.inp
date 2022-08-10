@@ -1,0 +1,20 @@
+tolerance 2.0
+filetype xyz
+output traj.xyz
+
+structure LiF.xyz
+number 40
+inside box -9.0 -9.0 -9.0 9.0 9.0 9.0
+end structure
+
+structure NaF.xyz
+number 8
+inside box -9.0 -9.0 -9.0 9.0 9.0 9.0
+end structure
+
+structure KF.xyz
+number 32
+inside box -9.0 -9.0 -9.0 9.0 9.0 9.0
+end structure
+
+avoid_overlap yes
