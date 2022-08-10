@@ -15,7 +15,9 @@ In order to proceed, several software packages need to be installed locally or o
 •	Have the N2P2 LAMMPS (add link to N2P2 github)
 The use of a high-performance supercomputer is recommended. It is also strongly suggested to read the LAMMPS manual in order to understand all the commands used and how to tune the command arguments.
 
-1.	Ab initio data generation
+# **1.	Ab initio data generation**
+
+
 The first step in building an NNP is to generate forces and positions from ab initio molecular dynamics simulation which can then be used as input for the neural network training. First, the initial configurations of the atomic system (in our example, 80) needs to be generated. This can be done on your local computer (recommended) or on a high-performance supercomputer using packmol. Information on how to compile and use packmol can be found here. Note that a folder containing the input files for an 80-atom system is included in the corresponding folder. Once packmol set up, go to the path where the package is installed and enter the following command: 
 packmol < opt.inp
  This will generate a .xyz file in the same directory. This file is your initial configuration file and will be required to run MD simulations.
@@ -36,5 +38,5 @@ These two files will split the position and forces output files and merge releva
 -	Input.data
 In a separate folder, add all the input.data files and number them in a way that the inputs look like this: input_1.data, input_2.data etc. Note that in the included split_file.sh file, the last command line will automatically create a new folder named “data_set” and add the input.data file to it. Once all input.data files are set in the folder, they need to be merged together. This is done by executing the merging_data.py script. This will generate one large file containing all the input.data files. Rename this how you like and paste it in a new folder, but make sure to keep the file as .data. 
 
-2.	Interatomic potential training
+# **2.	Interatomic potential training**
 Now that we have a file containing all the necessary AIMD information, we can get started on the neural network training. In your new folder containing the large .data file, add the input.nn file included in the “Interatomic potential training” folder. 
